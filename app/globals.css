@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+
+:root {
+  --oa: #e8841a;
+  --sa: #2563eb;
+  --ma: #16a34a;
+  --ra: #7c3aed;
+  --accent: #d4a017;
+  --bg: #f7f5f0;
+  --card: #ffffff;
+  --border: #e5e2da;
+  --text: #1a1a1a;
+  --muted: #6b7280;
+  --chat-user: #1a1a1a;
+  --chat-ai: #f0fdf4;
+  --chat-ai-border: #d1fae5;
+  --radius: 14px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111110;
+    --card: #1c1c1a;
+    --border: #2e2e2c;
+    --text: #f0ede6;
+    --muted: #9ca3af;
+    --oa: #f59c3c;
+    --sa: #60a5fa;
+    --ma: #4ade80;
+    --ra: #a78bfa;
+    --accent: #e8c44a;
+    --chat-user: #2c2c2a;
+    --chat-ai: #0f2417;
+    --chat-ai-border: #166534;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif { font-family: 'DM Serif Display', Georgia, serif; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* Markdown in chat */
+.ai-message h1, .ai-message h2, .ai-message h3 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  margin: 1rem 0 0.5rem;
+  color: var(--text);
+}
+.ai-message h1 { font-size: 1.3rem; }
+.ai-message h2 { font-size: 1.1rem; }
+.ai-message h3 { font-size: 1rem; }
+.ai-message p { margin-bottom: 0.75rem; }
+.ai-message ul, .ai-message ol { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+.ai-message li { margin-bottom: 0.25rem; }
+.ai-message strong { font-weight: 600; color: var(--text); }
+.ai-message table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 0.75rem; }
+.ai-message th { background: var(--bg); padding: 6px 10px; text-align: left; font-weight: 600; border-bottom: 1px solid var(--border); }
+.ai-message td { padding: 6px 10px; border-bottom: 1px solid var(--border); }
+.ai-message code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.85em; font-family: monospace; }

@@ -29,7 +29,7 @@ function renderMarkdown(text: string): string {
       const cells = line.split("|").filter((c) => c.trim());
       return "<tr>" + cells.map((c) => `<td>${c.trim()}</td>`).join("") + "</tr>";
     })
-    .replace(/(<tr>.*<\/tr>\n?)+/gs, (block) => {
+    .replace(/(<tr>[^\n]*<\/tr>\n?)+/gm, (block) => {
       const rows = block.trim().split("\n");
       const head = rows[0].replace(/<td>/g, "<th>").replace(/<\/td>/g, "</th>");
       const body = rows
@@ -39,7 +39,7 @@ function renderMarkdown(text: string): string {
       return `<table><thead>${head}</thead><tbody>${body}</tbody></table>`;
     })
     .replace(/^- (.+)$/gm, "<li>$1</li>")
-    .replace(/(<li>.*<\/li>\n?)+/gs, "<ul>$&</ul>")
+    .replace(/(<li>[^\n]*<\/li>\n?)+/gm, "<ul>$&</ul>")
     .replace(/^\d+\. (.+)$/gm, "<li>$1</li>")
     .replace(/\n\n/g, "</p><p>")
     .replace(/^(?!<[hul|t])(.+)$/gm, (line) =>
